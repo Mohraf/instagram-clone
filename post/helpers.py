@@ -1,7 +1,7 @@
 from django.db.models import Prefetch
 
-from posts.models import Post, Like
-from accounts.models import Connection, User
+from post.models import Post, Like
+from account.models import Connection, User
 
 
 def get_posts(user=None, wall=False):
