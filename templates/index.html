@@ -3,6 +3,13 @@
 {% block content %}
 {{block.super}}
 
-<h1>Welcome to Instagram</h1>
+{% if user.is_authenticated %}
+    <h1>wall</h1>
+    {% for post in posts  %}
+        {% include 'posts/post.html' %}
+    {% endfor %}
+{% else %}
+    <p>Welcome to Instagram. Please log in.</p>
+{% endif %}
 
 {% endblock %}

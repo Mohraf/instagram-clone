@@ -27,6 +27,10 @@ SECRET_KEY = 'django-insecure-a5w1dl8)%9@sw65_i#h^o_=fdhww+edi)ax-s-ux#fuh32y-=3
 
 AUTH_USER_MODEL = 'account.User'
 
+LOGIN_URL = '/u/login/'
+LOGIN_REDIRECT_URL = '/u/login/'
+LOGOUT_URL = '/u/logout/'
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
