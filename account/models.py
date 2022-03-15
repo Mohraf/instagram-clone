@@ -69,7 +69,7 @@ class User(AbstractBaseUser):
         return True
 
     def get_absolute_url(self):
-        return reverse('accounts:profile', kwargs={'username': self.username})
+        return reverse('account:profile', kwargs={'username': self.username})
 
     @property
     def is_staff(self):
