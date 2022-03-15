@@ -8,13 +8,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   {% bootstrap_css %}
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
-
+  <style>
+    .messages {
+        list-style: none;
+    }
+    .red, .red:hover, .red:visited,
+    .red:active, .red:focus, .red:link {
+        color: #d9534f;
+    }
+    .card-link {
+      text-decoration: none;
+      color: black;
+    }
+  </style>
+  <script src="https://kit.fontawesome.com/aaeed7d0a3.js" crossorigin="anonymous"></script>
   <title>Instagram</title>
 </head>
 <body>
   {% include "navbar.html" %}
 
-  {% block content %} <h1 class="text-center">Instagram</h1> {%endblock%}
+  {% block content %} {%endblock%}
 
   {% block scripts %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

@@ -29,8 +29,8 @@ def get_posts(user=None, wall=False):
                         queryset=Like.objects.select_related('user'),
                         to_attr='liker'
                     )) \
-                .filter(author__in=users) \
-                .order_by('-date_created')
+                # .filter(author__in=users) \
+                # .order_by('-date_created')
 
     for post in posts:
         post.liker = [liker.user for liker in post.liker]

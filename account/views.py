@@ -97,7 +97,7 @@ class SignUpView(
     form_class = SignUpForm
     form_valid_message = 'Successfully created your account, ' \
                          'go ahead and login.'
-    success_url = reverse_lazy('accounts:login')
+    success_url = reverse_lazy('account:login')
     template_name = 'accounts/account_form.html'
 
 
@@ -208,7 +208,7 @@ def follow_view(request, *args, **kwargs):
             )
     return HttpResponseRedirect(
         reverse_lazy(
-            'accounts:profile',
+            'account:profile',
             kwargs={'username': following.username}
         )
     )
@@ -251,7 +251,7 @@ def unfollow_view(request, *args, **kwargs):
 
     return HttpResponseRedirect(
         reverse_lazy(
-            'accounts:profile',
+            'account:profile',
             kwargs={'username': following.username}
         )
     )

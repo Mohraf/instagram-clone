@@ -119,7 +119,7 @@ def like_post_view(request, *args, **kwargs):
 
     return HttpResponseRedirect(
         reverse_lazy(
-            'posts:view',
+            'post:view',
             kwargs={'slug': kwargs['slug']}
         )
     )
@@ -142,7 +142,7 @@ def unlike_post_view(request, *args, **kwargs):
 
     return HttpResponseRedirect(
         reverse_lazy(
-            'posts:view',
+            'post:view',
             kwargs={'slug': kwargs['slug']}
         )
     )

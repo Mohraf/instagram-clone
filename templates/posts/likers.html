@@ -7,7 +7,7 @@
           </div>
           <div class="modal-body">
               {% for liker in post.liker %}
-                  <a href="{% url 'accounts:profile' liker.username %}"><h1>{{ liker.username }}</h1></a>
+                  <a href="{% url 'account:profile' liker.username %}"><h1>{{ liker.username }}</h1></a>
               {% endfor %}
           </div>
       </div>

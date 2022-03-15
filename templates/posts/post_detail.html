@@ -3,5 +3,11 @@
 {% block title %}{{ post.author.name }} on Instagram: "{{ post.caption }}"{% endblock %}
 
 {% block content %}
-    {% include 'posts/post.html' %}
+<div class="container">
+    <div class="col-3"></div>
+    <div class="col-6">
+        {% include 'posts/post.html' %}
+    </div>
+    <div class="col-3"></div>
+</div>
 {% endblock %}
