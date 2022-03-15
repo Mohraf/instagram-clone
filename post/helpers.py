@@ -4,6 +4,38 @@ from post.models import Post, Like
 from account.models import Connection, User
 
 
+def get_all_users_posts(user=None, wall=False):
+    if not user:
+        return None
+
+    if isinstance(user, str):
+        user = User.objects.get(username=user)
+
+    if not user.is_authenticated:
+        return None
+
+    users = [user, ]
+
+    if wall:
+        users += Connection.objects \
+                           .filter(follower__username=user) \
+                           .values_list('following', flat=True)
+
+    posts = Post.objects \
+                .select_related('author') \
+                .prefetch_related(
+                    Prefetch(
+                        'liked_post',
+                        queryset=Like.objects.select_related('user'),
+                        to_attr='liker'
+                    ))
+
+    for post in posts:
+        post.liker = [liker.user for liker in post.liker]
+
+    return posts
+
+
 def get_posts(user=None, wall=False):
     if not user:
         return None
@@ -29,8 +61,8 @@ def get_posts(user=None, wall=False):
                         queryset=Like.objects.select_related('user'),
                         to_attr='liker'
                     )) \
-                # .filter(author__in=users) \
-                # .order_by('-date_created')
+                .filter(author__in=users) \
+                .order_by('-date_created')
 
     for post in posts:
         post.liker = [liker.user for liker in post.liker]

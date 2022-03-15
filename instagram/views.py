@@ -4,7 +4,7 @@ from django.template.response import TemplateResponse
 from django.template import RequestContext
 
 from post.models import Post
-from post.helpers import get_posts
+from post.helpers import get_posts, get_all_users_posts
 
 
 class HomePageView(generic.ListView):
@@ -13,7 +13,7 @@ class HomePageView(generic.ListView):
     context_object_name = 'posts'
 
     def get_queryset(self):
-        return get_posts(self.request.user, wall=True)
+        return get_all_users_posts(self.request.user, wall=True)
 
 
 def handler404(request):
