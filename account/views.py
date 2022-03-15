@@ -8,7 +8,7 @@ from django.views import generic
 from django.urls import reverse_lazy
 
 from braces import views
-# from posts.helpers import get_posts
+from post.helpers import get_posts
 
 from .models import User, Connection
 from .forms import SignUpForm, UpdateAccountForm, LoginForm, ChangePasswordForm
